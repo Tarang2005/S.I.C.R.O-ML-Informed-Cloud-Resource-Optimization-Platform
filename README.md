@@ -150,6 +150,16 @@ kubectl get hpa
 
 ---
 
+## System Behavior
+
+### ML-Driven Self-Healing
+<img width="1500" height="800" alt="image" src="https://github.com/user-attachments/assets/f6cbfc30-5837-4f1c-b716-44393b95a327" />
+
+### Kubernetes Deployment
+<img width="1512" height="532" alt="image" src="https://github.com/user-attachments/assets/37519ab4-7e69-4735-a09e-3a880683940c" />
+
+---
+
 ## What This Project Demonstrates
 
 * ML applied to systems engineering (AIOps)
