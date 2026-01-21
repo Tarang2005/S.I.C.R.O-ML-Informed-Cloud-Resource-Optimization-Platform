@@ -1,8 +1,10 @@
-# S.I.C.R.O – Self‑Healing Intelligent Cloud Resource Optimizer
+# S.I.C.R.O – ML-Informed Cloud Resource Optimization Platform
 
 ## Overview
 
-**S.I.C.R.O (Self‑Healing Intelligent Cloud Resource Optimizer)** is a production‑grade simulation of an **AI‑driven autoscaling system**. It demonstrates how machine‑learning‑based anomaly detection can influence **cloud infrastructure scaling decisions**, and how those decisions map cleanly to **modern DevOps and Kubernetes primitives**.
+**S.I.C.R.O – ML-Informed Cloud Resource Optimization Platform** is a production-grade **simulation of an intelligent autoscaling control system**. It demonstrates how machine-learning-based anomaly detection can inform cloud infrastructure scaling decisions, and how those decisions map cleanly to **modern DevOps and Kubernetes primitives**.
+
+The project is intentionally designed to go **beyond a toy ML model** and instead showcase **system design, MLOps thinking, and cloud-native architecture** — the exact skills expected for Cloud / DevOps / SRE / Platform Engineering internships.
 
 The project is intentionally designed to go **beyond a toy ML model** and instead showcase **system design, MLOps thinking, and cloud‑native architecture** — the exact skills expected for Cloud / DevOps / SRE / Platform Engineering internships.
 
@@ -16,7 +18,7 @@ Traditional autoscaling mechanisms (e.g., basic CPU‑based scaling) are *reacti
 * Over‑provisioning and cloud cost waste
 * Resource thrashing due to noisy metrics
 
-S.I.C.R.O explores a **proactive and intelligent approach** where:
+S.I.C.R.O explores a **ML-informed and controlled scaling approach** where:
 
 * System metrics are continuously analyzed
 * ML models detect abnormal behavior early
