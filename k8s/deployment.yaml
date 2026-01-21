@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sicro-monitor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sicro
+  template:
+    metadata:
+      labels:
+        app: sicro
+    spec:
+      containers:
+      - name: sicro
+        image: python:3.9-slim
+        command: ["python", "-c", "while True: pass"]
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "500m"
+            memory: "512Mi"

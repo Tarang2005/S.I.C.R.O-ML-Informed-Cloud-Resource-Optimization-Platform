@@ -11,6 +11,13 @@ from data.traffic_simulator import generate_traffic_data
 
 
 # -------------------------------
+# CONFIGURATION
+# -------------------------------
+MAX_REPLICAS = 5
+MIN_REPLICAS = 1
+DECISION_INTERVAL = 10
+
+# -------------------------------
 # DECISION ENGINE (Controller)
 # -------------------------------
 
@@ -18,6 +25,7 @@ def decision_engine(is_anomaly, is_stable, current_replicas):
     MAX_REPLICAS = 5
     MIN_REPLICAS = 1
 
+def decision_engine(is_anomaly: bool, is_stable: bool, current_replicas: int) -> tuple[int, str]:
     if is_anomaly and current_replicas < MAX_REPLICAS:
         new_replicas = current_replicas + 1
         return new_replicas, f"SCALE UP -> {new_replicas} replicas"
@@ -51,9 +59,11 @@ def run_monitor():
 
     # Persistent anomaly detection
     df['is_alert'] = (df['ml_anomaly'] == -1).rolling(window=5).sum() >= 3
+    df['is_alert'] = (df['ml_anomaly'] == -1).rolling(window=5).sum().fillna(0) >= 3
 
     # Stability window (prevents flapping)
     df['is_stable'] = (df['ml_anomaly'] == 1).rolling(window=10).sum() >= 8
+    df['is_stable'] = (df['ml_anomaly'] == 1).rolling(window=10).sum().fillna(0) >= 8
 
     # -------------------------------
     # INFRASTRUCTURE SIMULATION
@@ -68,6 +78,7 @@ def run_monitor():
     for i in range(len(df)):
         # Decision every 10 minutes
         if i % 10 == 0:
+        if i % DECISION_INTERVAL == 0:
             current_replicas, action = decision_engine(
                 df['is_alert'].iloc[i],
                 df['is_stable'].iloc[i],

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sicro-service
+spec:
+  selector:
+    app: sicro
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
